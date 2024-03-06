@@ -4,6 +4,8 @@ services:
     build: ./
     env_file:
       - .env
+    volumes:
+      - .:/app
   helldivers2:
     image: helldivers2:latest
     ports:
