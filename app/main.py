@@ -1,20 +1,25 @@
 import discord
+import dotenv
 import os
-from dotenv import load_dotenv
 
-#load ENV
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
+# load env
+dotenv.load_dotenv()
+TOKEN = str(os.getenv("TOKEN"))
+STATUS = int(os.getenv("STATUS"))
 
-intents = discord.Intents.default()
+# create bot
+bot = discord.Bot()
 
-client = discord.Client(intents=intents)
-
-#Once online, run
-@client.event
-async def on_ready():
-    print(f'Started {client.user}')
-    channel = client.get_channel(1157636928527671387)
-    await channel.send('Systems starting...')
+# hello slash command
+@bot.slash_command()
+async def hello(ctx, name: str = None):
+    name = name or ctx.author.name
+    await ctx.respond(f"Hello you {name}!")
     
-client.run(TOKEN)
+# bot is online
+@bot.event
+async def on_ready():
+    channel = bot.get_channel(STATUS)
+    await channel.send("Bot is online!")
+
+bot.run(TOKEN)
