@@ -4,3 +4,9 @@ services:
     build: ./
     env_file:
       - .env
+  helldivers2:
+    image: helldivers2:latest
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
