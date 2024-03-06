@@ -1,25 +1,27 @@
 import discord
 import dotenv
 import os
+import datetime
 
-# load env
+# load env vars
 dotenv.load_dotenv()
 TOKEN = str(os.getenv("TOKEN"))
 STATUS = int(os.getenv("STATUS"))
 
-# create bot
+# create a bot instance
 bot = discord.Bot()
-
-# hello slash command
-@bot.slash_command()
-async def hello(ctx, name: str = None):
-    name = name or ctx.author.name
-    await ctx.respond(f"Hello you {name}!")
     
-# bot is online
+# Load the "modules" by specifying their directory names    
+modules = ['slash_commands']
+for module in modules:
+    bot.load_extension(f'{module}')
+    
+# Once the bot is ready, send a message to the given status channel
 @bot.event
 async def on_ready():
     channel = bot.get_channel(STATUS)
-    await channel.send("Bot is online!")
+    current_time = datetime.datetime.now().strftime("%H:%M:%S")
+    await channel.send(f"Bot is online! Current time is {current_time}")
 
+# Start the bot
 bot.run(TOKEN)
