@@ -6,4 +6,4 @@ def setup(bot):
     for filename in os.listdir('./app/slash_commands'):
         if filename.endswith('.py') and filename != '__init__.py':
             bot.load_extension(f'slash_commands.{filename[:-3]}')
-            print(f'Loaded {filename[:-3]}')
+            print(f'Loaded slash command: {filename[:-3]}')
