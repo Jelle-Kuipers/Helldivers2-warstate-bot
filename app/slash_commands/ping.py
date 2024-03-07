@@ -8,7 +8,7 @@ class pingCommandCog(commands.Cog):
     # This is a command, a function that can be called by a user    
     @commands.slash_command(description="Sends the bot's latency.")
     async def ping(self, ctx):
-        await ctx.respond(f"Pong! Latency is {round(self.bot.latency * 1000)}ms")
+        await ctx.respond(f"Received. Latency is **{round(self.bot.latency * 1000)}ms**")
 
 # This function is called in app/slash_commands/__init__.py, and adds the command to the bot
 def setup(bot):
