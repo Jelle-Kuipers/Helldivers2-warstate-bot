@@ -2,6 +2,9 @@
 
 A [pycord](https://pycord.dev/) based [discord](https://discord.com/) bot that uses the [unofficial helldivers 2 api](https://github.com/dealloc/helldivers2-api) to fetch and showcase current data about planets and major orders.
 
+
+# This bot is nolonger being worked on.
+
 ## Features
 
 ### Completed
@@ -12,9 +15,13 @@ A [pycord](https://pycord.dev/) based [discord](https://discord.com/) bot that u
 
 ### Planned
 
-- Campaign Reports: Using the `/active` command, you are able to see all current active campaigns and their data/progress.
-- Scheduled Updates: Using the `/update` command, you are able to set a time and channel you'd like to receive automated Campaign Reports in.
-- Set-up script: A bash script will be added to provide options for running the project.
+
+<p><u>- Campaign Reports: Using the `/active` command, you are able to see all current active campaigns and their data/progress.</u>
+</p>
+<p><u>- Scheduled Updates: Using the `/update` command, you are able to set a time and channel you'd like to receive automated Campaign Reports in.</u>
+</p>
+<p><u>- Set-up script: A bash script will be added to provide options for running the project.</u>
+</p>
 
 ## Requirements
 
