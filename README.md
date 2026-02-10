@@ -1,3 +1,6 @@
+# Project has been abandoned. 
+Due to discords new age verification process, I have stopped supporting or using the platform and will no longer be working on this project. a
+
 # Warstate Bot
 
 A [pycord](https://pycord.dev/) based [discord](https://discord.com/) bot that uses the [unofficial helldivers 2 api](https://github.com/dealloc/helldivers2-api) to fetch and showcase current data about planets and major orders.
