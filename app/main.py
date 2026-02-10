@@ -1,20 +1,27 @@
 import discord
+import dotenv
 import os
-from dotenv import load_dotenv
+import datetime
 
-#load ENV
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
+# load env vars
+dotenv.load_dotenv()
+TOKEN = str(os.getenv("TOKEN"))
+STATUS = int(os.getenv("STATUS"))
 
-intents = discord.Intents.default()
-
-client = discord.Client(intents=intents)
-
-#Once online, run
-@client.event
-async def on_ready():
-    print(f'Started {client.user}')
-    channel = client.get_channel(1157636928527671387)
-    await channel.send('Systems starting...')
+# create a bot instance
+bot = discord.Bot()
     
-client.run(TOKEN)
+# Load the "modules" by specifying their directory names    
+modules = ['slash_commands']
+for module in modules:
+    bot.load_extension(f'{module}')
+    
+# Once the bot is ready, send a message to the given status channel
+@bot.event
+async def on_ready():
+    channel = bot.get_channel(STATUS)
+    current_time = datetime.datetime.now().strftime("%H:%M:%S")
+    await channel.send(f"Bot is online! Current time is {current_time}")
+
+# Start the bot
+bot.run(TOKEN)
